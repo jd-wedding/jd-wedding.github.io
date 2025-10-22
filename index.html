@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarah & Michaels Hochzeit | Märchenhaftes Glück</title>
+<link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#9C7A97',
+                        secondary: '#D8AC9C',
+                        accent: '#EFD6D2',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-accent min-h-screen flex flex-col">
+    <custom-navbar></custom-navbar>
+    
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="relative h-screen flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 bg-black/30 z-10"></div>
+            <img src="http://static.photos/vintage/1200x630/42" alt="Wedding couple" class="absolute inset-0 w-full h-full object-cover">
+            
+            <div class="relative z-20 text-center px-4">
+                <h1 class="text-5xl md:text-7xl font-serif font-bold text-white mb-4">Sarah & Michael</h1>
+                <p class="text-xl md:text-2xl text-white mb-8">15. Juni 2024 • Fairmont Banff Springs</p>
+                <a href="#details" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-full font-medium transition-all">Hochzeitsdetails</a>
+</div>
+            
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
+                <a href="#details" class="text-white">
+                    <i data-feather="chevron-down" class="w-10 h-10"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Countdown Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl font-serif text-primary mb-12">Countdown zu unserem großen Tag</h2>
+<div id="countdown" class="flex justify-center gap-4 md:gap-8">
+                    <div class="text-center">
+                        <div class="text-4xl md:text-6xl font-bold text-secondary" id="days">00</div>
+                        <div class="text-gray-500">Tage</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl md:text-6xl font-bold text-secondary" id="hours">00</div>
+                        <div class="text-gray-500">Stunden</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl md:text-6xl font-bold text-secondary" id="minutes">00</div>
+                        <div class="text-gray-500">Minuten</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl md:text-6xl font-bold text-secondary" id="seconds">00</div>
+                        <div class="text-gray-500">Sekunden</div>
+</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Details Section -->
+        <section id="details" class="py-16 bg-accent">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-serif text-primary text-center mb-12">Hochzeitsdetails</h2>
+<div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                    <!-- Ceremony -->
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <div class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i data-feather="heart" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-serif text-primary mb-2">Trauung</h3>
+                        <p class="text-gray-600 mb-2">16:30 Uhr</p>
+                        <p class="text-gray-600 mb-4">Fairmont Banff Springs</p>
+                        <a href="https://maps.google.com" target="_blank" class="text-secondary hover:underline">Auf Karte anzeigen</a>
+</div>
+                    
+                    <!-- Reception -->
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <div class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i data-feather="glass" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-serif text-primary mb-2">Empfang</h3>
+                        <p class="text-gray-600 mb-2">18:30 Uhr</p>
+                        <p class="text-gray-600 mb-4">Fairmont Banff Springs</p>
+                        <a href="https://maps.google.com" target="_blank" class="text-secondary hover:underline">Auf Karte anzeigen</a>
+</div>
+                    
+                    <!-- RSVP -->
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <div class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i data-feather="mail" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-serif text-primary mb-2">RSVP</h3>
+                        <p class="text-gray-600 mb-4">Bitte antworten Sie bis zum 1. Mai 2024</p>
+                        <a href="/rsvp.html" class="bg-secondary hover:bg-secondary/90 text-white px-4 py-2 rounded-full text-sm transition-all">Jetzt antworten</a>
+</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Registry Preview -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl font-serif text-primary mb-4">Wunschliste</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mb-8">Eure Teilnahme ist Geschenk genug, aber falls ihr uns beschenken möchtet, hier sind einige Dinge, die wir für unser gemeinsames Leben wünschen.</p>
+<div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8">
+                    <!-- Sample registry items -->
+                    <div class="bg-accent p-6 rounded-lg shadow-sm text-center">
+                        <img src="http://static.photos/indoor/320x240/1" alt="Coffee maker" class="w-full h-48 object-cover rounded mb-4">
+                        <h3 class="text-xl font-serif text-primary mb-2">Kaffeemaschine</h3>
+                        <p class="text-gray-600 mb-4">120 €</p>
+                        <a href="/registry.html" class="text-secondary hover:underline">Artikel reservieren</a>
+</div>
+                    
+                    <div class="bg-accent p-6 rounded-lg shadow-sm text-center">
+                        <img src="http://static.photos/indoor/320x240/2" alt="Dinnerware set" class="w-full h-48 object-cover rounded mb-4">
+                        <h3 class="text-xl font-serif text-primary mb-2">Geschirr-Set</h3>
+                        <p class="text-gray-600 mb-4">250 €</p>
+                        <a href="/registry.html" class="text-secondary hover:underline">Artikel reservieren</a>
+</div>
+                    
+                    <div class="bg-accent p-6 rounded-lg shadow-sm text-center">
+                        <img src="http://static.photos/indoor/320x240/3" alt="Luggage set" class="w-full h-48 object-cover rounded mb-4">
+                        <h3 class="text-xl font-serif text-primary mb-2">Koffer-Set</h3>
+                        <p class="text-gray-600 mb-4">400 €</p>
+                        <a href="/registry.html" class="text-secondary hover:underline">Artikel reservieren</a>
+</div>
+                </div>
+                <a href="/registry.html" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-full font-medium transition-all">Vollständige Liste ansehen</a>
+</div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="py-16 bg-accent">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-serif text-primary text-center mb-12">Unsere Geschichte</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <img src="http://static.photos/people/320x240/1" alt="Couple photo 1" class="w-full h-48 object-cover rounded-lg">
+                    <img src="http://static.photos/people/320x240/2" alt="Couple photo 2" class="w-full h-48 object-cover rounded-lg">
+                    <img src="http://static.photos/people/320x240/3" alt="Couple photo 3" class="w-full h-48 object-cover rounded-lg">
+                    <img src="http://static.photos/people/320x240/4" alt="Couple photo 4" class="w-full h-48 object-cover rounded-lg">
+                    <img src="http://static.photos/people/320x240/5" alt="Couple photo 5" class="w-full h-48 object-cover rounded-lg">
+                    <img src="http://static.photos/people/320x240/6" alt="Couple photo 6" class="w-full h-48 object-cover rounded-lg">
+                    <img src="http://static.photos/people/320x240/7" alt="Couple photo 7" class="w-full h-48 object-cover rounded-lg">
+                    <img src="http://static.photos/people/320x240/8" alt="Couple photo 8" class="w-full h-48 object-cover rounded-lg">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+        feather.replace();
+        // Countdown-Ziel (15. Juni 2024)
+        const countDownDate = new Date("Jun 15, 2024 16:30:00").getTime();
+// Update the count down every 1 second
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+            // Zeitberechnungen
+const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            // Ergebnis anzeigen
+document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+        }, 1000);
+    </script>
+<script src="https://deepsite.hf.co/deepsite-badge.js"></script>
+</body>
+</html>
