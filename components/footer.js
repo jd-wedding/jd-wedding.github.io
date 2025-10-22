@@ -64,7 +64,7 @@ class CustomFooter extends HTMLElement {
                 <div class="footer-content">
                     <div class="footer-section">
                         <h3>Kontakt</h3>
-                        <p><i data-feather="mail" class="inline mr-2"></i> sarahundmichael@example.com</p>
+                        <p><i data-feather="mail" class="inline mr-2"></i> daniel.giemsa@outlook.de</p>
                         <p><i data-feather="phone" class="inline mr-2"></i> (123) 456-7890</p>
 </div>
                     <div class="footer-section">
@@ -84,7 +84,7 @@ class CustomFooter extends HTMLElement {
                     </div>
                 </div>
                 <div class="copyright">
-                    <p>&copy; 2024 Sarah & Michaels Hochzeit. Alle Rechte vorbehalten.</p>
+                    <p>&copy; Alle Rechte vorbehalten.</p>
 </div>
             </footer>
             <script src="https://unpkg.com/feather-icons"></script>
