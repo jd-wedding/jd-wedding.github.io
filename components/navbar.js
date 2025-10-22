@@ -85,7 +85,7 @@ class CustomNavbar extends HTMLElement {
                 }
             </style>
             <nav>
-                <a href="/" class="logo">Sarah & Michael</a>
+                <a href="/" class="logo">Jacqueline und Daniel</a>
 <button class="mobile-menu-btn">
                     <i data-feather="menu"></i>
                 </button>
