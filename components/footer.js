@@ -4,7 +4,7 @@ class CustomFooter extends HTMLElement {
         this.shadowRoot.innerHTML = `
             <style>
                 footer {
-                    background: #9C7A97;
+                    background: #ff8c00;
                     color: white;
                     padding: 3rem 2rem;
                     text-align: center;

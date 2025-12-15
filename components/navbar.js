@@ -20,7 +20,7 @@ class CustomNavbar extends HTMLElement {
                     font-family: 'Playfair Display', serif;
                     font-weight: 700;
                     font-size: 1.5rem;
-                    color: #9C7A97;
+                    color: #ff8c00;
                     text-decoration: none;
                 }
                 .nav-links {
