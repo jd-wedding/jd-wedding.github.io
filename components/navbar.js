@@ -24,6 +24,10 @@ class CustomNavbar extends HTMLElement {
                     text-decoration: none;
                 }
                 .nav-links {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
                     display: flex;
                     gap: 2rem;
                     list-style: none;
