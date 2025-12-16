@@ -21,7 +21,7 @@ class CustomFooter extends HTMLElement {
                     font-family: 'Playfair Display', serif;
                     font-size: 1.25rem;
                     margin-bottom: 1rem;
-                    color: #ffffffe6;
+                    color: #000000;
                 }
                 .footer-section p, .footer-section a {
                     color: black;;
