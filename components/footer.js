@@ -24,7 +24,7 @@ class CustomFooter extends HTMLElement {
                     color: #000000;
                 }
                 .footer-section p, .footer-section a {
-                    color: black;
+                    color: #000000;
                     margin-bottom: 0.5rem;
                     display: block;
                     text-decoration: none;
@@ -63,7 +63,7 @@ class CustomFooter extends HTMLElement {
             <footer>
                 <div class="footer-content">
                     <div class="footer-section">
-                        <h3>Kontakt</h3>
+                        <h3>Kontakt1</h3>
                         <p><i data-feather="mail" class="inline mr-2"></i> daniel.giemsa@outlook.de</p>
                         <p><i data-feather="phone" class="inline mr-2"></i> (123) 456-7890</p>
 </div>
