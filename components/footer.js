@@ -38,7 +38,7 @@ class CustomFooter extends HTMLElement {
                     margin-top: 1rem;
                 }
                 .social-icons a {
-                    color: white;
+                    color: black;
                     transition: color 0.3s;
                 }
                 .social-icons a:hover {
