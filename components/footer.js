@@ -24,7 +24,7 @@ class CustomFooter extends HTMLElement {
                     color: #ffffffe6;
                 }
                 .footer-section p, .footer-section a {
-                    color: white;
+                    color: black;;
                     margin-bottom: 0.5rem;
                     display: block;
                     text-decoration: none;
