@@ -1,6 +1,6 @@
 async function loadRegistry() {
     try {
-        const response = await fetch('http://65.108.92.13:8080/gifts');
+        const response = await fetch('https://65.108.92.13/gifts');
         const items = await response.json();
         const container = document.getElementById('registry-container');
 
