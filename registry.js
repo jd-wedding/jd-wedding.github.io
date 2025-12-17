@@ -7,11 +7,11 @@ async function loadRegistry() {
         // Container leeren
         container.innerHTML = '';
 
-        items.forEach(item => {
+        const cardsHtml = items.map(item => {
             // Bestimme das Bild basierend auf der ID (oder füge Bild-URLs in dein JSON ein)
             const imgSrc = item.id === 1 ? 'brater.jpg' : 'toys-delight-tablesetting-with-diffrent-plates-cutlery-decoraton-and-glasses.jpeg';
+            return `
 
-            const card = `
                 <div class="bg-white p-6 rounded-lg shadow-sm border ${item.is_reserved ? 'opacity-50' : ''}">
                     <img src="${imgSrc}" alt="${item.name}" class="w-full h-48 object-cover rounded mb-4">
                     <h3 class="text-xl font-serif text-primary mb-2">${item.name}</h3>
@@ -30,8 +30,9 @@ async function loadRegistry() {
                     </button>
                 </div>
             `;
-            container.innerHTML += card;
-        });
+        }).join('');
+
+        container.innerHTML = cardsHtml;
     } catch (error) {
         console.error('Fehler beim Laden der Daten:', error);
     }

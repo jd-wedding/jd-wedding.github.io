@@ -68,21 +68,22 @@
     <script src="components/navbar.js"></script>
     <script src="components/footer.js"></script>
     <script src="script.js"></script>
+    <script src="registry.js"></script>
     <script>
         feather.replace();
         
         // Handle reservation button clicks
-        const reserveBtns = document.querySelectorAll('.reserve-btn');
         const modal = document.getElementById('reservationModal');
         const cancelBtn = document.getElementById('cancelReservation');
         const form = document.getElementById('reservationForm');
         const itemIdInput = document.getElementById('itemId');
+        const registryContainer = document.getElementById('registry-container');
         
-        reserveBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                itemIdInput.value = btn.getAttribute('data-id');
+        registryContainer.addEventListener('click', function(event) {
+            if (event.target.classList.contains('reserve-btn') && !event.target.disabled) {
+                itemIdInput.value = event.target.getAttribute('data-id');
                 modal.classList.remove('hidden');
-            });
+            }
         });
         
         cancelBtn.addEventListener('click', () => {
@@ -99,7 +100,7 @@
             console.log(`Reservation: Item ${itemId} by ${name || 'Anonymous'} (${email})`);
             
             // Mark as reserved
-            const reservedBtn = document.querySelector(`.reserve-btn[data-id="${itemId}"]`);
+            const reservedBtn = registryContainer.querySelector(`.reserve-btn[data-id="${itemId}"]`);
             reservedBtn.textContent = 'Reserved!';
             reservedBtn.classList.remove('bg-secondary', 'hover:bg-secondary/90');
             reservedBtn.classList.add('bg-gray-400', 'cursor-not-allowed');
