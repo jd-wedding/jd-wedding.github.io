@@ -1,6 +1,6 @@
 async function loadRegistry() {
     try {
-        const response = await fetch('https://giemsahomeserverbla.de/gifts');
+        const response = await fetch('https://giemsahomeserver.de/gifts');
         const items = await response.json();
         const container = document.getElementById('registry-container');
 
