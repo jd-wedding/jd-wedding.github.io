@@ -22,7 +22,7 @@ async function loadRegistry() {
                         class="reserve-btn px-6 py-2 rounded-full text-sm transition-all ${
                             item.is_reserved 
                             ? 'bg-gray-300 text-gray-600 cursor-not-allowed' 
-                            : 'bg-secondary hover:bg-secondary/90 text-black'
+                            : 'bg-secondary hover:bg-secondary/90 text-white'
                         }" 
                         data-id="${item.id}"
                         ${item.is_reserved ? 'disabled' : ''}>
