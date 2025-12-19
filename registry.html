@@ -116,7 +116,7 @@
             try {
                 // Annahme: Der Endpunkt zum Reservieren ist PATCH /gifts/{id}/reserve
                 const response = await fetch(`https://giemsahomeserver.de/gifts/${itemId}/reserve`, {
-                    method: 'PATCH',
+                    method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
