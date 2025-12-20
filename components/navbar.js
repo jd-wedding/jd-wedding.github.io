@@ -4,7 +4,6 @@ class CustomNavbar extends HTMLElement {
         this.shadowRoot.innerHTML = `
             <style>
                 :host {
-                    /* Definiert die Hauptfarbe als CSS-Variable für einfache Wiederverwendung */
                     --main-color: #ff8c00; 
                     --text-color: #333;
                     --background-color: rgba(255, 255, 255, 0.9);
@@ -19,7 +18,9 @@ class CustomNavbar extends HTMLElement {
                     align-items: center;
                     position: fixed;
                     width: 100%;
+                    box-sizing: border-box; /* WICHTIG: Padding wird in die Breite eingerechnet */
                     top: 0;
+                    left: 0; /* Sicherstellen, dass sie links startet */
                     z-index: 1000;
                     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
                 }
@@ -30,16 +31,13 @@ class CustomNavbar extends HTMLElement {
                     font-size: 1.5rem;
                     color: var(--main-color);
                     text-decoration: none;
-                    /* Logo muss z-index haben, damit es über dem ausgeblendeten Menü bleibt */
-                    position: relative; 
                     z-index: 1001; 
                 }
 
                 .nav-links {
-                    /* Zentralisiert die Links im verfügbaren Raum für Desktop */
                     display: flex;
                     justify-content: center; 
-                    flex-grow: 1; /* Nimmt den restlichen Platz zwischen Logo und Button ein */
+                    flex-grow: 1;
                     gap: 2rem;
                     list-style: none;
                     margin: 0;
@@ -52,78 +50,62 @@ class CustomNavbar extends HTMLElement {
                     text-decoration: none;
                     font-weight: 500;
                     transition: color 0.3s;
-                    position: relative;
-                }
-
-                .nav-links a:hover {
-                    color: var(--main-color); 
-                }
-
-                .nav-links a:after {
-                    content: '';
-                    position: absolute;
-                    width: 0;
-                    height: 2px;
-                    background: var(--main-color); 
-                    bottom: -4px;
-                    left: 0;
-                    transition: width 0.3s;
-                }
-
-                .nav-links a:hover:after {
-                    width: 100%;
                 }
 
                 .mobile-menu-btn {
-                    display: none; /* Standardmäßig ausgeblendet auf dem Desktop */
+                    display: none; 
                     background: none;
                     border: none;
                     color: var(--main-color); 
-                    font-size: 1.5rem;
                     cursor: pointer;
-                    position: relative;
-                    z-index: 1001; /* Button muss auch über dem Menü liegen */
+                    z-index: 1001;
+                    padding: 5px;
+                    width: 40px; /* Feste Größe geben */
+                    height: 40px;
+                }
+
+                /* SVG Styling, falls Feather Icons geladen werden */
+                .mobile-menu-btn svg {
+                    width: 32px;
+                    height: 32px;
+                    stroke: currentColor;
+                    stroke-width: 2;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                    fill: none;
                 }
 
                 @media (max-width: 768px) {
                     .mobile-menu-btn {
-                        display: block; /* Auf mobilen Geräten anzeigen */
+                        display: flex; /* Als Flexbox anzeigen um Icon zu zentrieren */
+                        align-items: center;
+                        justify-content: center;
                     }
                     
                     .nav-links {
                         position: fixed;
-                        top: 70px; /* Unterhalb der Navbar */
+                        top: 0; /* Von ganz oben */
                         left: 0;
                         width: 100%;
+                        height: 100vh; /* Ganze Bildschirmhöhe für bessere Usability */
                         background: white;
                         flex-direction: column;
-                        gap: 1rem;
-                        padding: 1rem 0;
-                        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-                        /* Versteckt das Menü standardmäßig außerhalb des Bildschirms */
-                        transform: translateY(-150%); 
-                        transition: transform 0.3s ease;
-                        /* Zentrierung für mobile Ansicht deaktivieren */
-                        flex-grow: unset; 
-                        justify-content: unset;
-                        z-index: 1000;
+                        justify-content: center; /* Links vertikal zentrieren */
+                        transform: translateX(100%); /* Von rechts nach links einschieben ist gängiger */
+                        transition: transform 0.3s ease-in-out;
+                        z-index: 999;
                     }
                     
-                    /* Wenn die Klasse 'active' hinzugefügt wird, wird das Menü eingeblendet */
                     .nav-links.active {
-                        transform: translateY(0);
-                    }
-
-                    .nav-links li {
-                        width: 100%;
-                        text-align: center;
+                        transform: translateX(0);
                     }
                 }
             </style>
             <nav>
                 <a href="/" class="logo">J&D Wedding</a>
                 <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
-                    <!-- Icon wird via JavaScript eingefügt -->
+                    <!-- Fallback Icon (Hamburger) falls JS/Feather nicht lädt -->
+                    <svg viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
                 </button>
                 <ul class="nav-links">
                     <li><a href="/">Startseite</a></li>
@@ -134,23 +116,33 @@ class CustomNavbar extends HTMLElement {
             </nav>
         `;
 
-        // Mobile menu toggle Logik
         const mobileMenuBtn = this.shadowRoot.querySelector('.mobile-menu-btn');
         const navLinks = this.shadowRoot.querySelector('.nav-links');
 
-        // Initiales Icon setzen (da feather.replace() nicht im Shadow DOM funktioniert)
-        if (window.feather) {
-            mobileMenuBtn.innerHTML = feather.icons['menu'].toSvg();
-        }
+        // Funktion zum Icon-Wechsel
+        const updateIcon = (isOpen) => {
+            if (window.feather) {
+                mobileMenuBtn.innerHTML = feather.icons[isOpen ? 'x' : 'menu'].toSvg();
+            } else {
+                // Einfacher CSS/SVG Toggle falls Feather nicht da ist
+                mobileMenuBtn.innerHTML = isOpen ? 
+                    '<svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>' : 
+                    '<svg viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+            }
+        };
 
         mobileMenuBtn.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            const isOpen = navLinks.classList.contains('active');
-            if (window.feather) {
-                mobileMenuBtn.innerHTML = feather.icons[isOpen ? 'x' : 'menu'].toSvg();
-            }
+            updateIcon(navLinks.classList.contains('active'));
+        });
+
+        // Menü schließen wenn ein Link geklickt wird
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                updateIcon(false);
+            });
         });
     }
 }
-
 customElements.define('custom-navbar', CustomNavbar);
