@@ -123,7 +123,7 @@ class CustomNavbar extends HTMLElement {
             <nav>
                 <a href="/" class="logo">J&D Wedding</a>
                 <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
-                    <i data-feather="menu"></i>
+                    <!-- Icon wird via JavaScript eingefügt -->
                 </button>
                 <ul class="nav-links">
                     <li><a href="/">Startseite</a></li>
@@ -132,24 +132,23 @@ class CustomNavbar extends HTMLElement {
                     <li><a href="/rsvp.html">RSVP</a></li>
                 </ul>
             </nav>
-            <!-- Feather Icons Skript für Icons -->
-            <script src="unpkg.com"></script>
-            <script>feather.replace();</script>
         `;
 
         // Mobile menu toggle Logik
         const mobileMenuBtn = this.shadowRoot.querySelector('.mobile-menu-btn');
         const navLinks = this.shadowRoot.querySelector('.nav-links');
 
+        // Initiales Icon setzen (da feather.replace() nicht im Shadow DOM funktioniert)
+        if (window.feather) {
+            mobileMenuBtn.innerHTML = feather.icons['menu'].toSvg();
+        }
+
         mobileMenuBtn.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            const icon = mobileMenuBtn.querySelector('i');
-            if (navLinks.classList.contains('active')) {
-                icon.setAttribute('data-feather', 'x'); // Zeigt ein 'X' Symbol
-            } else {
-                icon.setAttribute('data-feather', 'menu'); // Zeigt ein 'Menu' Symbol
+            const isOpen = navLinks.classList.contains('active');
+            if (window.feather) {
+                mobileMenuBtn.innerHTML = feather.icons[isOpen ? 'x' : 'menu'].toSvg();
             }
-            feather.replace(); // Ersetzt das Icon nach dem Attributwechsel
         });
     }
 }
