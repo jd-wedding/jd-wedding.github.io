@@ -64,8 +64,7 @@ class CustomFooter extends HTMLElement {
                 <div class="footer-content">
                     <div class="footer-section">
                         <h3>Kontakt</h3>
-                        <p><i data-feather="mail" class="inline mr-2"></i> daniel.giemsa@outlook.de</p>
-                        <p><i data-feather="phone" class="inline mr-2"></i> (123) 456-7890</p>
+                        <p><i data-feather="mail" class="inline mr-2"></i> daniel.giemsa@outlook.de </p>
 </div>
                     <div class="footer-section">
                         <h3>Quick Links</h3>
