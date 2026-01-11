@@ -9,7 +9,7 @@ async function loadRegistry() {
 
         const cardsHtml = items.map(item => {
             // Bestimme das Bild basierend auf der ID (oder füge Bild-URLs in dein JSON ein)
-            const imgSrc = item.id === 1 ? 'brater.jpg' : (item.id === 2 ? 'toys-delight-tablesetting-with-diffrent-plates-cutlery-decoraton-and-glasses.jpeg' : 'Carbonator-3_matte-black_45_e20b4fa1-30aa-4354-9b73-ff72f585b777.png.webp');
+            const imgSrc = item.id === 1 ? 'brater.jpg' : (item.id === 2 ? 'toys-delight-tablesetting-with-diffrent-plates-cutlery-decoraton-and-glasses.jpeg' : 'Carbonator-3_matte-black_45_e20b4fa1-30aa-4354-9b73-ff72f585b777 copy.jpg');
             return `
 
                 <div class="bg-white p-6 rounded-lg shadow-sm border ${item.is_reserved ? 'opacity-50' : ''}">
