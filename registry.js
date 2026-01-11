@@ -13,7 +13,7 @@ async function loadRegistry() {
             return `
 
                 <div class="bg-white p-6 rounded-lg shadow-sm border ${item.is_reserved ? 'opacity-50' : ''}">
-                    <img src="${imgSrc}" alt="${item.name}" class="w-full h-48 object-cover rounded mb-4">
+                    <img src="${imgSrc}" alt="${item.name}" class="w-full h-64 object-cover rounded mb-4">
                     <h3 class="text-xl font-serif text-primary mb-2">${item.name}</h3>
                     <p class="text-gray-600 mb-2 font-bold">${item.price}</p>
                     <p class="text-gray-600 mb-4">${item.description}</p>
