@@ -9,7 +9,9 @@ async function loadRegistry() {
 
         const images = {
             1: 'brater.jpg',
-            2: 'Carbonator-3_matte-black_45_e20b4fa1-30aa-4354-9b73-ff72f585b777 copy.jpg'
+            2: 'Carbonator-3_matte-black_45_e20b4fa1-30aa-4354-9b73-ff72f585b777 copy.jpg',
+            3: 'Saugrobo.jpg',
+            4: 'Standlüfter.jpg'
         };
 
         const cardsHtml = items.map(item => {
