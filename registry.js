@@ -16,7 +16,9 @@ async function loadRegistry() {
 
         const cardsHtml = items.map(item => {
             // Bestimme das Bild basierend auf der ID (oder füge Bild-URLs in dein JSON ein)
-            const imgSrc = images[item.id]
+            const imgSrc = images[item.id];
+            console.log(`Item ID: ${item.id} (${item.name}) -> Bild: ${imgSrc}`);
+            
             return `
 
                 <div class="bg-white p-6 rounded-lg shadow-sm border ${item.is_reserved ? 'opacity-50' : ''}">
