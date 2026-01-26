@@ -13,7 +13,8 @@ async function loadRegistry() {
             3: 'Standlüfter.jpg',
             4: 'Saugrobo.jpg',
             5: 'Butterdose_Puro_Produkt.jpg',
-            6: 'Brotschneider.jpg'
+            6: 'Brotschneider.jpg',
+            7: 'muhle.jpg'
         };
 
         const cardsHtml = items.map(item => {
