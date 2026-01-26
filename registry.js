@@ -12,7 +12,8 @@ async function loadRegistry() {
             2: 'Carbonator-3_matte-black_45_e20b4fa1-30aa-4354-9b73-ff72f585b777 copy.jpg',
             3: 'Standlüfter.jpg',
             4: 'Saugrobo.jpg',
-            5: 'Butterdose_Puro_Produkt.jpg'
+            5: 'Butterdose_Puro_Produkt.jpg',
+            6: 'Brotschneider.jpg'
         };
 
         const cardsHtml = items.map(item => {
