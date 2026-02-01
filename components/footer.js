@@ -69,11 +69,11 @@ class CustomFooter extends HTMLElement {
 
                     <div class="footer-section">
                         <h3>Quick Links</h3>
-                        <a href="/">Startseite</a>
-                        <a href="#details" onclick="navigateToDetails(event)">Hochzeitsdetails</a>
+                        <a href="/">Startseite</a>                        
                         <a href="/registry.html">Wunschliste</a>
                         <a href="/rsvp.html">RSVP</a>
                      </div>
+                        <a href="index.html#details">Hochzeitsdetails</a>
 
                     <script>
                         function navigateToDetails(event) {
