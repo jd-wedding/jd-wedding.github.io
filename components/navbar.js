@@ -139,7 +139,20 @@ class CustomNavbar extends HTMLElement {
         // Menü schließen wenn ein Link geklickt wird
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
+               navLinks.classList.remove('active');
+                const href = link.getAttribute('href');
+
+                if (href.startsWith('#')) {
+                    if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+                        // Wenn nicht auf der Startseite, zuerst zur Startseite wechseln
+                        window.location.href = '/#' + href.substring(1); // Weiterleitung zur Startseite mit dem Hash
+                    } else {
+                        // Wenn bereits auf der Startseite, direkt zum Abschnitt scrollen
+                        document.querySelector(href).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
                 updateIcon(false);
             });
         });
