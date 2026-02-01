@@ -143,9 +143,11 @@ class CustomNavbar extends HTMLElement {
                 const href = link.getAttribute('href');
 
                 if (href.startsWith('#')) {
-                    if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+                    const basePath = window.location.pathname.replace(/\/[^/]*$/, '');
+                    const indexPath = basePath === '/' ? '/' : basePath + '/';
+                    if (window.location.pathname !== indexPath && window.location.pathname !== indexPath + 'index.html') {
                         // Wenn nicht auf der Startseite, zuerst zur Startseite wechseln
-                        window.location.href = '/#' + href.substring(1); // Weiterleitung zur Startseite mit dem Hash
+                        window.location.href = indexPath + '#' + href.substring(1); // Weiterleitung zur Startseite mit dem Hash
                     } else {
                         // Wenn bereits auf der Startseite, direkt zum Abschnitt scrollen
                         document.querySelector(href).scrollIntoView({
