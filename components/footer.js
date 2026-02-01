@@ -69,10 +69,18 @@ class CustomFooter extends HTMLElement {
                     <div class="footer-section">
                         <h3>Quick Links</h3>
                         <a href="/">Startseite</a>
-                        <a href="#details">Hochzeitsdetails</a>
+                        <a href="#details" onclick="handleDetailsClick(event)">Hochzeitsdetails</a>
                         <a href="/registry.html">Wunschliste</a>
                         <a href="/rsvp.html">RSVP</a>
 </div>
+<script>
+function handleDetailsClick(event) {
+  event.preventDefault();
+  const basePath = window.location.pathname.replace(/\/[^/]*$/, '');
+  const indexPath = basePath === '/' ? '/' : basePath + '/';
+  window.location.href = indexPath + '#details';
+}
+</script>
                     <div class="footer-section">
                         <h3>Begleitet uns</h3>
 <div class="social-icons">
