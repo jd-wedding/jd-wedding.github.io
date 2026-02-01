@@ -66,21 +66,25 @@ class CustomFooter extends HTMLElement {
                         <h3>Kontakt</h3>
                         <p><i data-feather="mail" class="inline mr-2"></i> daniel.giemsa@outlook.de </p>
 </div>
+
                     <div class="footer-section">
                         <h3>Quick Links</h3>
                         <a href="/">Startseite</a>
-                        <a href="#details" onclick="handleDetailsClick(event)">Hochzeitsdetails</a>
+                        <a href="#details" onclick="navigateToDetails(event)">Hochzeitsdetails</a>
                         <a href="/registry.html">Wunschliste</a>
                         <a href="/rsvp.html">RSVP</a>
-</div>
-<script>
-function handleDetailsClick(event) {
-  event.preventDefault();
-  const basePath = window.location.pathname.replace(/\/[^/]*$/, '');
-  const indexPath = basePath === '/' ? '/' : basePath + '/';
-  window.location.href = indexPath + '#details';
-}
-</script>
+                     </div>
+
+                    <script>
+                        function navigateToDetails(event) {
+                            event.preventDefault();
+                            // Remove trailing slash if present
+                            let basePath = window.location.pathname.replace(/\/$/, '');
+                            // Redirect to index.html with the hash
+                            window.location.href = basePath.substring(0, basePath.lastIndexOf('/') + 1) + 'index.html#details';
+                        }
+                    </script>
+
                     <div class="footer-section">
                         <h3>Begleitet uns</h3>
 <div class="social-icons">
