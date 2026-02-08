@@ -14,7 +14,8 @@ async function loadRegistry() {
             4: 'Saugrobo.jpg',
             5: 'Butterdose_Puro_Produkt.jpg',
             6: 'Brotschneider.jpg',
-            7: 'muhle.jpg'
+            7: 'muhle.jpg',
+            8:'Backgammon.jpg'
         };
 
         const cardsHtml = items.map(item => {
