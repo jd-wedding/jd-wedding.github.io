@@ -15,7 +15,9 @@ async function loadRegistry() {
             5: 'Butterdose_Puro_Produkt.jpg',
             6: 'Brotschneider.jpg',
             7: 'muhle.jpg',
-            8:'Backgammon.jpg'
+            8:'Backgammon.jpg',
+            9:'A0S7HO_5K5THSBP_4pt83_litre160.jpg',
+            10:'36116-200.jpg'
         };
 
         const cardsHtml = items.map(item => {
